@@ -1,7 +1,7 @@
 import streamlit as st
 import pickle
 
-# Load model and vectorizer
+
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
@@ -13,7 +13,7 @@ if st.button("Check"):
     if news_text.strip() == "":
         st.warning("Please enter some text")
     else:
-        # Transform and predict
+    
         x = vectorizer.transform([news_text])
         prediction = model.predict(x)[0]
 
